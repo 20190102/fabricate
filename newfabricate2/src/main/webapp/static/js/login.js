@@ -166,7 +166,7 @@ function ajax_user() {
 		},
 		success : function(data) {
 			if (data.msg) {
-				$(window).attr("location", "page/user.html");
+				$(window).attr("location", "static/page/user.html");
 			} else {
 				$("#error_tips").text("邮箱或密码错误");
 			}

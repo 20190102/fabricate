@@ -35,7 +35,7 @@ function queryUsers(pn, qMode, qContent) {
 
 	$.ajax({
 		type : "GET",
-		url : "../queryUsers",
+		url : "/newfabricate/queryUsers",
 		dataType : "json",
 		data : {
 			pn : pn,
@@ -229,7 +229,7 @@ function update_input(item){
 function del_user(delId, pn, qMode, qContent) {
 	$.ajax({
 		type : "GET",
-		url : "../delUsers",
+		url : "/newfabricate/delUsers",
 		dataType : "json",
 		data : {
 			delIds : delId,
@@ -249,7 +249,7 @@ function del_user(delId, pn, qMode, qContent) {
 function update_user(uId, uEmail, uUsername, uUserintro, uBirthday, uSex,pn, qMode, qContent) {
 	$.ajax({
 		type : "POST",
-		url : "../updateUser",
+		url : "/newfabricate/updateUser",
 		dataType : "json",
 		data : {
 			id : uId,
@@ -276,7 +276,7 @@ function update_user(uId, uEmail, uUsername, uUserintro, uBirthday, uSex,pn, qMo
 //function queryById(id) {
 //	$.ajax({
 //		type : "GET",
-//		url : "../queryById",
+//		url : "/newfabricate/queryById",
 //		dataType : "json",
 //		data : {
 //			id : id,

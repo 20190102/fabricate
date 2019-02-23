@@ -32,7 +32,7 @@ public class UserController {
 	final private String msgf = "{\"msg\":false}";
 
 	// 用户登录
-	@RequestMapping("userLogin")
+	@RequestMapping("/userLogin")
 	public void userLogin(UserBean userBean, PrintWriter writer) {
 		
 		
@@ -53,7 +53,7 @@ public class UserController {
 		writer.println(gson.toJson(page));
 	}
 
-	@RequestMapping("queryById")
+	@RequestMapping("/queryById")
 	public void queryById(UserBeanCustom userBeanCustom, PrintWriter writer) {
 		ArrayList<UserBeanCustom> list = userService.queryById(userBeanCustom);
 		writer.print(gson.toJson(list));
@@ -61,7 +61,7 @@ public class UserController {
 	}
 
 	// 用户修改
-	@RequestMapping("updateUser")
+	@RequestMapping("/updateUser")
 	public void updateUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
 		int rows = userService.updateUsers(userBeanCustom);
 		if (rows == 1) {
@@ -72,7 +72,7 @@ public class UserController {
 	}
 
 	// 删除用户
-	@RequestMapping("delUsers")
+	@RequestMapping("/delUsers")
 	public void deleteUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
 		int rows = userService.deleteUsers(userBeanCustom);
 		if (rows == userBeanCustom.getDelIds().length) {
@@ -84,7 +84,7 @@ public class UserController {
 	}
 
 	// 添加用户
-	@RequestMapping("insertUsers")
+	@RequestMapping("/insertUsers")
 	public void insertUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
 		int rows = userService.insertUsers(userBeanCustom);
 		if (rows == 1) {
@@ -95,7 +95,7 @@ public class UserController {
 	}
 
 	// 验证邮箱是否存在
-	@RequestMapping("hasEmail")
+	@RequestMapping("/hasEmail")
 	public void hasEmail(UserBeanCustom userBeanCustom, PrintWriter writer) {
 		int rows = userService.hasEmail(userBeanCustom);
 		if (rows == 0) {

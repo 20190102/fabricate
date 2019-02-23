@@ -37,7 +37,9 @@
 						
 				
 					<if test="qMode==2">
-						email like #{bContent}
+						id like #{bContent}
+						
+						or email like #{bContent}
 						
 						or username like #{bContent}
 	
