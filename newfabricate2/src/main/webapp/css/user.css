@@ -1,0 +1,282 @@
+@charset "UTF-8";
+body{
+	background-color:#ffffff;
+}
+#all {
+	margin:0px auto;
+	height:800px;
+
+}
+#footer,#all,table{
+	width:890px;
+}
+#searchbar {
+	/* position: absolute;
+	left: 50%;
+	margin-left: -500px; */
+	line-height: 80px;
+	width: 800px;
+	text-align: center;
+	margin:0px auto;
+	font-size: 20px;
+}
+
+select, #searchInput, #searchButton {
+	height: 40px;
+	font-size: 20px;
+	border-radius: 7px;
+	outline: none;
+	border: 1px solid black;
+	height:40px;
+}
+
+#searchButton {
+	width: 70px;
+	
+}
+
+#searchButton:hover {
+	background-color: #A5A5A5;
+}
+
+#searchInput {
+	width:250px;
+	padding: 10px;
+}
+
+
+/* #main_div {
+	float: left;
+} */
+table{
+	table-layout:fixed; 
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	font-size:18px;
+}
+table tr:nth-child(Odd):not(#t_head) {
+	background-color: #EAF4FF;
+}
+table tr:nth-child(even){
+	background-color: #D5EAFF;
+}
+thead{
+	background-color:#2693FF;
+}
+td{
+	padding:3px;
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+}
+
+.check,.sex,.id{
+	width:66px;
+}
+.email,.uname{
+	width:200px;
+}
+.birthday{
+	width:150px;
+}
+
+.table_head_operation{
+	width:120px;
+}
+
+td>button{
+	
+	border: 1px solid black;
+	outline: none;
+	border-radius: 7px;
+	padding:5px;
+	color:white;
+	width:49px;
+	height:30px;
+}
+td>button:first-child{
+	background-color:#FF4351;
+}
+td>button:nth-child(2){
+	background-color:#1B9AF7;
+	margin-left:10px;
+}
+
+#footer{
+	height:30px;
+	float:left;
+	margin-top:10px;
+}
+.f_operation{
+	width:200px;
+	float:left;
+}
+#page {
+	/* width:255px; */
+	float:right;
+}
+#footer button{
+	width:60px;
+	height:25px;
+	border-radius: 7px;
+	border:1px solid black;
+	background-color:#2693FF;
+	color:white;
+	outline: none;
+}
+
+
+/* button:not(.operation_btn):not(.back) {
+	height: 27.28px;
+	margin-left: 5px;
+	background-color: white;
+	border: 1px solid black;
+	outline: none;
+}
+
+
+table tr:nth-child(Odd) {
+	background-color: #BEBEBE;
+}
+
+th {
+	background-color: #E2E2E2;
+}
+
+
+button:hover {
+	background-color: #BBFFFF;
+}
+
+input[type='checkbox'] {
+	width: 13px;
+} */
+
+
+
+
+
+.cover {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0; 
+	z-index: 1;
+	background:rgba(0,0,0,0.5);
+}
+#operation {
+	width: 500px;
+	height:600px;
+	margin:0px auto;
+	margin-top:50px;
+	background-color: white;
+}
+
+
+
+.back{
+	float:right;
+	width:30px;
+	height:30px;
+	font-size:20px;
+	background-color: white;
+	border:none;
+	outline: none;
+}
+.photo{
+	width:120px;
+	height:168px;
+	background-color: yellow;
+	margin-left:10px;
+}
+.info{
+	margin-top:18px;
+	margin-left:10px;
+	width:400px;
+	height:30px;
+	
+}
+.info label:not(.l_radio){
+	float:left;
+	display:block;
+	width:80px;
+	height:40px;
+	line-height:40px;
+	font-size:18px;
+}
+.info>div:not(.o_id):not(.o_sex){
+	border:1px solid #DBDBDB;
+}
+.info>div:not(.o_userintro):not(.o_birthday){
+	height:34px;
+}
+.info>div{
+	float:left;
+	width:310px;
+	line-height:34px;
+	padding:2px;
+}
+.info input{
+	/* border:1px solid #DBDBDB; */
+	font-family:微软雅黑;
+	width:300px;
+	font-size:18px;
+	padding:5px;
+	border:none;
+}
+#userintro_info{
+	height:100px;
+}
+.o_userintro{
+	height:104px;
+}
+textarea{
+	border:none;
+	resize:none;
+	/* border:1px solid #DBDBDB; */
+	font-family:微软雅黑;
+	width:300px;
+	padding:5px;
+	height:90px;
+	font-size:18px;
+	outline: none;
+}
+.info_btn{
+	width:300px;
+	height:100px;
+	margin-top:20px;
+}
+.operation_btn{
+	float:right;
+	margin-right:24px;
+	width:70px;
+	height:35px;
+	font-size:18px;
+	border: none;
+	outline: none;
+	background-color: #c0c0c0;
+}
+.l_radio span{
+	width:50px;
+	float:left;
+	text-align: center;
+	border:1px solid #DBDBDB;
+	border-radius: 9px;
+}
+.o_birthday{
+	height:35px;
+}
+input[type="radio"]{
+	display:none;
+}
+input[type="radio"]:checked + span{
+    background-color: #80ffff;
+}

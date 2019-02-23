@@ -1,0 +1,140 @@
+body {
+	background: url(../image/4.jpg) no-repeat;
+	background-size: 100%;
+}
+
+#admin_login {
+	float: right;
+	color: #6A8598;
+	font-size: 20px;
+}
+
+#admin_login:hover {
+	color: #475570;
+}
+
+#error_div {
+	text-align: center;
+	color: red;
+	height: 30px;
+	width: 300px;
+}
+
+#loginbar {
+	position: absolute;
+	text-align: center;
+	/* background-color:red; */
+	width: 550px;
+	height: 300px;
+	/*background-color: red;*/
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -160px;
+}
+
+#email_text {
+	background: url(../image/icon/email.png) no-repeat 7px;
+}
+
+#password_text {
+	background: url(../image/icon/password.png) no-repeat 7px;
+}
+
+#user_text {
+	background: url(../image/icon/user.png) no-repeat 7px;
+}
+
+#user_div {
+	display: none;
+}
+
+#user_text, #password_text, #email_text {
+	background-size: 25px 25px;
+}
+
+.put_in {
+	border: 1px solid #5B6A81;
+	width: 300px;
+	border-radius: 9px;
+	font-size: 20px;
+	padding: 10px 10px 10px 40px;
+	outline: none;
+	box-sizing: border-box;
+	
+}
+
+.info {
+	margin-top: 10px;
+	height: 45px;
+	border-radius: 9px;
+	/*box-sizing: content-box;*/
+	/*background-color: blue;*/
+	/*margin-top: 10px;*/
+	background-color: white;
+}
+
+#email_error, #password_error,#user_error {
+	color: red;
+	float: left;
+	height: 47px;
+	line-height: 47px;
+	margin-top: 10px;
+	margin-left: 3px;
+}
+#user_div,#user_error{
+	display:none;
+}
+#forget, #reg {
+	float: right;
+}
+
+#login, .info {
+	float: left;
+}
+
+#forget_text {
+	color: white;
+	text-decoration: none;
+}
+
+#rem {
+	color: white;
+	float: left;
+}
+
+#click_bn {
+	float: left;
+	width: 300px;
+}
+
+#login_bn, #reg_bn {
+	color: white;
+	font-size: 20px;
+	height: 40px;
+	margin-top: 15px;
+	border-radius: 9px;
+	border: none;
+	outline: none;
+	background-color: #6A8598;
+}
+
+#login_bn {
+	width: 247px;
+}
+
+#reg_bn {
+	width: 52px;
+}
+
+#login_bn:hover, #reg_bn:hover {
+	background-color: #475570;
+}
+
+#set_up {
+	margin-top: 10px;
+	height: 25px;
+}
+input{
+	background-color:white;
+}

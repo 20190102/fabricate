@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Insert title here</title>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/user.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/user.css">
+</head>
+<body>
+	<div id="all">
+		<!-- <div id="header"> -->
+			<div id="searchbar">
+			匹配方式: <select id="searchRule">
+						<option value="1">精确匹配</option>
+						<option value="2">模糊匹配</option>
+					</select> <input type="search" id="searchInput">
+					<button id="searchButton">搜索</button>
+			</div>
+		<!-- </div> -->
+		<div id="main_div">
+			<table>
+				<thead>
+					<tr id="t_head">
+						<th class="check"><input type="checkbox" class="chooseAll" /></th>
+						<th class="id">ID</th>
+						<th class="email">邮箱</th>
+						<th class="uname">用户名</th>
+						<!-- <th id="sign" >签名</th> -->
+						<th class="birthday">生日</th>
+						<th class="sex">性别</th>
+						<!-- <th id="address" >家庭地址</th> -->
+						<th class="table_head_operation">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		
+		<div id="footer">
+			<div class="f_operation">
+				<button id="delete">删除</button> 
+				<button id="add">新增</button>
+			</div>
+			<div id="page">
+				<button id="first">首页</button>
+				<button id="last">上一页</button>
+				<label id="page_label"></label>
+				<button id="next">下一页</button>
+				<button id="end">尾页</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 半透明遮罩层 -->
+	<div class="cover">
+		<div id="operation">
+				<button class="back">x</button>
+			<div class="photo">
+				<img alt="" src="../image/icon/email.png">
+				
+			</div>
+			<div class="info" id="id_info">
+				<label>ID:</label>
+				<div class="o_id"></div>
+			</div>
+			<div class="info">
+				<label>邮箱:</label>
+				<div class="o_email"></div>
+			</div>
+			<div class="info">
+				<label>用户名:</label>
+				<div class="o_username"></div>
+			</div>
+			<div class="info" id="userintro_info">
+				<label>签名:</label>
+				<div class="o_userintro"></div>
+			</div>
+			<div class="info">
+				<label>生日:</label>
+				<div class="o_birthday"></div>
+			</div>
+			<div class="info">
+				<label>性别:</label>
+				<div class="o_sex">
+					<label class="l_radio">
+						<input type="radio" value="男"  name="sex" />
+						<span>男</span>
+					</label>
+					<label class="l_radio">
+						<input type="radio" value="女"  name="sex" />
+						<span>女</span>
+					</label>
+					<label class="l_radio">
+						<input type="radio" value="保密"  name="sex" />
+						<span>保密</span>
+					</label>
+				</div>
+			</div>
+	<!-- 		<div class="info">
+				<label>注册时间:</label>
+				<div class="regtime"></div>
+			</div> -->
+			<div  class="info_btn">
+				<button class="operation_btn"></button>
+			</div>
+		
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fabricate.mapper.UserMapper">
+
+	<!-- 登录 -->
+	<select id="userLogin" parameterType="userBean" resultType="int">
+		select count(*) from usertb where email=#{email} and
+		password=#{password}
+	</select>
+	
+	<!-- 验证邮箱是否存在 -->
+	<select id="hasEmail" parameterType="userBeanCustom" resultType="int">
+		SELECT COUNT(*) FROM usertb WHERE email=#{email}
+	</select>
+	
+	<!-- 查询所有用户/根据条件匹配/分页 -->
+	<select id="userQuery" parameterType="userBeanCustom" resultType="userBeanCustom">
+		select id,email,username,userintro,birthday,sex from usertb
+		<where>
+				<if test="qContent!=null and qContent!=''">
+					<bind name="bContent" value="'%'+qContent+'%'"/>
+					<if test="qMode==1">
+						id=#{qContent}
+						
+						or email=#{qContent}
+	
+						or username=#{qContent}
+	
+						or birthday=#{qContent}
+	
+						or sex=#{qContent}
+					
+					</if>
+						
+				
+					<if test="qMode==2">
+						email like #{bContent}
+						
+						or username like #{bContent}
+	
+						or birthday like #{bContent}
+	
+						or sex like #{bContent}
+					</if>
+				
+				</if>
+		</where>
+	</select>
+	
+	<!-- 根据id查询用户 -->
+	<select id="queryById" parameterType="userBeanCustom" resultType="userBeanCustom">
+		SELECT * FROM usertb WHERE id=#{id}
+	</select>
+	
+	<!-- 修改用户 -->
+	<update id="updateUsers" parameterType="userBeanCustom">
+		update usertb set email=#{email},username=#{username},imgpath=#{imgpath},userintro=#{userintro},birthday=#{sqlDate},sex=#{sex}
+		where id=#{id}
+	</update>
+	
+	<!-- 增加用户 -->
+	<insert id="insertUsers" parameterType="userBeanCustom">
+		INSERT	usertb(email,password,username) VALUES(#{email},#{password},#{username})
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteUsers"  parameterType="userBeanCustom">
+		<if test="delIds!=null"></if>
+		DELETE FROM usertb 	WHERE id in
+		<foreach collection="delIds" item="delId" open="(" separator="," close=")">
+			#{delId}
+		</foreach>
+	</delete>
+	
+</mapper>
