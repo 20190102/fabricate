@@ -10,6 +10,22 @@
 	<!-- 前端控制器处理不了的数据交由tomcat处理 -->
 	<mvc:default-servlet-handler/>
 	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">    
+        <property name="messageConverters">    
+            <list>    
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">    
+                    <property name="supportedMediaTypes">    
+                        <list>    
+                            <value>text/plain;charset=UTF-8</value>  
+                            <value>text/html;charset=UTF-8</value>  
+                            <value>applicaiton/javascript;charset=UTF-8</value>    
+                        </list>    
+                    </property>    
+                </bean>    
+            </list>    
+        </property>    
+    </bean>  
+	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<context:component-scan base-package="com.fabricate.controller"></context:component-scan>
@@ -20,4 +36,6 @@
 		</mvc:interceptor>
 		
 	</mvc:interceptors>
+	
+
 </beans>
