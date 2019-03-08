@@ -1,6 +1,5 @@
 package com.fabricate.controller;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,13 +46,13 @@ public class UserController {
 
 	// 用户查询
 	@RequestMapping("/queryUsers")
-	public PageInfo<UserBeanCustom> queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn
+	public String queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn
 			) {
 		PageHelper.startPage(pn, 10);
 		List<UserBeanCustom> lists = userService.userQuery(userBeanCustom);
 		PageInfo<UserBeanCustom> page = new PageInfo<UserBeanCustom>(lists);
-//		return gson.toJson(page);
-		return page;
+		return gson.toJson(page);
+//		return page;
 	}
 
 	@RequestMapping("/queryById")
