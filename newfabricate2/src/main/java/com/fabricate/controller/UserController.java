@@ -4,14 +4,14 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fabricate.module.UserBean;
 import com.fabricate.module.UserBeanCustom;
@@ -21,6 +21,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 
 @Controller
+@ResponseBody
 public class UserController {
 
 	@Autowired
@@ -33,75 +34,77 @@ public class UserController {
 
 	// 用户登录
 	@RequestMapping("/userLogin")
-	public void userLogin(UserBean userBean, PrintWriter writer) {
+	
+	public  String userLogin(UserBean userBean) {
 		
 		
 		int rows = userService.userLogin(userBean);
 		if (rows == 1) {
-			writer.print(msgt);
+			return msgt;
 		} else
-			writer.print(msgf);
+			return msgf;
 	}
 
 	// 用户查询
 	@RequestMapping("/queryUsers")
-	public void queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn,
-			PrintWriter writer) {
+	public PageInfo<UserBeanCustom> queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn
+			) {
 		PageHelper.startPage(pn, 10);
 		List<UserBeanCustom> lists = userService.userQuery(userBeanCustom);
 		PageInfo<UserBeanCustom> page = new PageInfo<UserBeanCustom>(lists);
-		writer.println(gson.toJson(page));
+//		return gson.toJson(page);
+		return page;
 	}
 
 	@RequestMapping("/queryById")
-	public void queryById(UserBeanCustom userBeanCustom, PrintWriter writer) {
+	public String queryById(UserBeanCustom userBeanCustom) {
 		ArrayList<UserBeanCustom> list = userService.queryById(userBeanCustom);
-		writer.print(gson.toJson(list));
+		return gson.toJson(list);
 
 	}
 
 	// 用户修改
 	@RequestMapping("/updateUser")
-	public void updateUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
+	public String updateUsers(UserBeanCustom userBeanCustom) {
 		int rows = userService.updateUsers(userBeanCustom);
 		if (rows == 1) {
-			writer.print(msgt);
+			return msgt;
 		} else {
-			writer.print(msgf);
+			return msgf;
 		}
 	}
 
 	// 删除用户
 	@RequestMapping("/delUsers")
-	public void deleteUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
+	public String deleteUsers(UserBeanCustom userBeanCustom) {
 		int rows = userService.deleteUsers(userBeanCustom);
 		if (rows == userBeanCustom.getDelIds().length) {
-			writer.print(msgt);
+			return msgt;
 		} else {
-			writer.print(msgf);
+			return msgf;
 		}
 
 	}
 
 	// 添加用户
 	@RequestMapping("/insertUsers")
-	public void insertUsers(UserBeanCustom userBeanCustom, PrintWriter writer) {
+	public String  insertUsers(UserBeanCustom userBeanCustom) {
 		int rows = userService.insertUsers(userBeanCustom);
 		if (rows == 1) {
-			writer.print("{\"msg\":1}");
+			return "{\"msg\":1}";
 		} else {
-			writer.print("{\"msg\":2}");
+			return "{\"msg\":2}";
 		}
 	}
 
 	// 验证邮箱是否存在
 	@RequestMapping("/hasEmail")
-	public void hasEmail(UserBeanCustom userBeanCustom, PrintWriter writer) {
+	public String hasEmail(UserBeanCustom userBeanCustom) {
 		int rows = userService.hasEmail(userBeanCustom);
 		if (rows == 0) {
-			writer.print("{\"msg\":true}");
+			return msgt;
 		} else {
-			writer.print("{\"msg\":false}");
+			return msgf;
 		}
 	}
 
