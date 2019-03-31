@@ -12,6 +12,5 @@ ssm整合（spring,springmvc,mybatis）
 
 重写的上一个javaweb程序
 
-没使用jsp，又由于对前端了解不够，所有与后台的数据交互都用的jquery的ajax.
 
 
