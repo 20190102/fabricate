@@ -17,7 +17,6 @@ import com.fabricate.module.UserBeanCustom;
 import com.fabricate.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 
 @Controller
 @ResponseBody
@@ -25,15 +24,13 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private Gson gson;
+
 
 	final private String msgt = "{\"msg\":true}";
 	final private String msgf = "{\"msg\":false}";
 
 	// 用户登录
 	@RequestMapping("/userLogin")
-	
 	public  String userLogin(UserBean userBean) {
 		
 		
@@ -46,25 +43,26 @@ public class UserController {
 
 	// 用户查询
 	@RequestMapping("/queryUsers")
-	public String queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn
+	public PageInfo<UserBeanCustom> queryUser(UserBeanCustom userBeanCustom, @RequestParam(value = "pn", defaultValue = "1") int pn
 			) {
 		PageHelper.startPage(pn, 10);
 		List<UserBeanCustom> lists = userService.userQuery(userBeanCustom);
 		PageInfo<UserBeanCustom> page = new PageInfo<UserBeanCustom>(lists);
-		return gson.toJson(page);
-//		return page;
+
+		return page;
 	}
 
 	@RequestMapping("/queryById")
-	public String queryById(UserBeanCustom userBeanCustom) {
+	public List<UserBeanCustom> queryById(UserBeanCustom userBeanCustom) {
 		ArrayList<UserBeanCustom> list = userService.queryById(userBeanCustom);
-		return gson.toJson(list);
+		return list;
 
 	}
 
 	// 用户修改
 	@RequestMapping("/updateUser")
 	public String updateUsers(UserBeanCustom userBeanCustom) {
+		System.out.println(userBeanCustom);
 		int rows = userService.updateUsers(userBeanCustom);
 		if (rows == 1) {
 			return msgt;

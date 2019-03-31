@@ -47,6 +47,4 @@
 		<property name="basePackage" value="com.fabricate.mapper"></property>
 	</bean>
 	
-	<bean id="gson" class="com.google.gson.Gson"></bean>
-	
 </beans>

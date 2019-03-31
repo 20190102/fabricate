@@ -51,7 +51,7 @@ function queryUsers(pn, qMode, qContent) {
 	});
 }
 
-//控制器，由该方法处理获得的数据和调度需要的其他方法
+
 function controller(data, qMode, qContent){
 	$("tbody").empty();
 
@@ -189,7 +189,7 @@ function udpate_btn(item,pn, qMode, qContent){
 			 var uId=$(".o_id").text();
 			 var uEmail=$(".o_email input").val();
 			 var uUsername=$(".o_username input").val();
-			 var uUserintro=$("o_textarea").val();
+			 var uUserintro=$("textarea").val();
 			 var uBirthday=$(".o_birthday input").val();
 			 var uSex=$(".o_sex input[name='sex']:checked").val();
 			 if(confirm("是否确认修改")){

@@ -7,34 +7,21 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<!-- 前端控制器处理不了的数据交由tomcat处理 -->
-	<mvc:default-servlet-handler/>
-	
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">    
-        <property name="messageConverters">    
-            <list>    
-                <bean class="org.springframework.http.converter.StringHttpMessageConverter">    
-                    <property name="supportedMediaTypes">    
-                        <list>    
-                            <value>text/plain;charset=UTF-8</value>  
-                            <value>text/html;charset=UTF-8</value>  
-                            <value>applicaiton/javascript;charset=UTF-8</value>    
-                        </list>    
-                    </property>    
-                </bean>    
-            </list>    
-        </property>    
-    </bean>  
-	
+	<!-- 开启默认的类型转换器和一些高级功能 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
+	<!-- 将静态资源交由默认的servlet处理 -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- 开启注解扫描 -->
 	<context:component-scan base-package="com.fabricate.controller"></context:component-scan>
+	
+	<!-- 配置拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/queryUsers"/>
 			<bean  class="com.fabricate.interceptor.UserInterceptor"></bean>
 		</mvc:interceptor>
-		
 	</mvc:interceptors>
 	
 

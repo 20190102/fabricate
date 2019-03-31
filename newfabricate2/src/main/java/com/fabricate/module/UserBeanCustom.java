@@ -1,6 +1,7 @@
 package com.fabricate.module;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 //UserBean的扩展类
 public class UserBeanCustom extends UserBean {
@@ -30,6 +31,16 @@ public class UserBeanCustom extends UserBean {
 
 	public void setDelIds(int[] delIds) {
 		this.delIds = delIds;
+	}
+
+	@Override
+	public String toString() {
+		return "UserBeanCustom [getqMode()=" + getqMode() + ", getqContent()=" + getqContent() + ", getDelIds()="
+				+ Arrays.toString(getDelIds()) + ", getId()=" + getId() + ", getEmail()=" + getEmail()
+				+ ", getUsername()=" + getUsername() + ", getPassword()=" + getPassword() + ", getImgpath()="
+				+ getImgpath() + ", getUserintro()=" + getUserintro() + ", getSqlDate()=" + getSqlDate()
+				+ ", getBirthday()=" + getBirthday() + ", getSex()=" + getSex() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 
 }
