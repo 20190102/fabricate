@@ -1,6 +1,6 @@
 # fabricate
 
-ssm整合（spring,springmvc,mybatis）
+框架:spring,springmvc,mybatis
 
 分页:pagehelper
 
@@ -10,7 +10,7 @@ ssm整合（spring,springmvc,mybatis）
 
 实现登录与增删查改
 
-重写的上一个javaweb程序
+前端使用ajax交换数据
 
 
 
